@@ -52,7 +52,7 @@ public class Hurricanes2
                 windSpeed[index] = inFile.nextInt();
                 name[index] = inFile.next();
             
-                double windData = Double.parseDouble(windSpeed[index]);
+                double windData = inFile.nextDouble();
                 windData = windData*1.15077945;
                 if (windData < 95.0)
                 {
