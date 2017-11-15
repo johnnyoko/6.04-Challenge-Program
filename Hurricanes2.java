@@ -49,10 +49,11 @@ public class Hurricanes2
                 year[index] = inFile.nextInt();
                 month[index] = inFile.next();
                 pressure[index] = inFile.nextInt();
-                windSpeed[index] = Double.parseDouble(inFile.nextDouble());
+                windSpeed[index] = inFile.nextInt();
                 name[index] = inFile.next();
             
-                windSpeed = windSpeed*1.15077945;
+                double windData = Double.parseDouble(windSpeed[index]);
+                windData = windData*1.15077945;
                 if (windData < 95.0)
                 {
                     category[index] = 1;
