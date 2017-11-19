@@ -37,14 +37,14 @@ public class Hurricanes2
             year[index] = inFile.nextInt();
             month[index] = inFile.next();
             pressure[index] = inFile.nextInt();
-            System.out.println(windSpeed[index]);
+            windSpeed[index] = inFile.nextDouble();
             name[index] = inFile.next();
             if(year[index] != 0)
                 index++;
         }
         for (int i = 0; i < 59; i++)
         {                         
-                double windData = 0;
+                double windData = Double.parseDouble(windSpeed[index]);
                 windData = windSpeed[index]*1.15077945;
                 if (windData < 95.0)
                 {
