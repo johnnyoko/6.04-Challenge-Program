@@ -42,6 +42,7 @@ public class Hurricanes2
             if(year[index] != 0)
                 index++;
         }
+        index = 0;
         for (int i = 0; i < 59; i++)
         {                         
                 double windData = Double.parseDouble(windSpeed[index]);
