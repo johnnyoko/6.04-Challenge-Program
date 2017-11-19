@@ -1,11 +1,3 @@
-/**
- * Hurricane description:
- *
- * @author:
- * @version:
- *
- */
-
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
@@ -37,23 +29,23 @@ public class Hurricanes2
         String [] name = new String[arrayLength];
         int [] category = new int[arrayLength];
         
-        File newData = new File("/Users/johnny/Desktop/AP Computer Science/Modules/Module 6/Assignments/6.04 Challenge Program/hurcdata2.txt");
+        File newData = new File("hurcdata2.txt");
         Scanner inFile = new Scanner(newData);
         
         while (inFile.hasNext())
         {
-            inFile.nextLine();
-            index++;
-            for (int i = 0; i < 59; i++)
-            {
-                year[index] = inFile.nextInt();
-                month[index] = inFile.next();
-                pressure[index] = inFile.nextInt();
-                windSpeed[index] = inFile.nextInt();
-                name[index] = inFile.next();
-            
-                double windData = inFile.nextDouble();
-                windData = windData*1.15077945;
+            year[index] = inFile.nextInt();
+            month[index] = inFile.next();
+            pressure[index] = inFile.nextInt();
+            System.out.println(windSpeed[index]);
+            name[index] = inFile.next();
+            if(year[index] != 0)
+                index++;
+        }
+        for (int i = 0; i < 59; i++)
+        {                         
+                double windData = 0;
+                windData = windSpeed[index]*1.15077945;
                 if (windData < 95.0)
                 {
                     category[index] = 1;
@@ -82,7 +74,6 @@ public class Hurricanes2
                 windSpeed[index] = windData;
                 categoryAverage += category[index];
                 windAverage += windSpeed[index];
-                name[index] = inFile.next();
                 int categoryV2 = category[index];
                 int pressure2 = pressure[index];
                 double windSpeed2 = windSpeed[index];
@@ -114,8 +105,8 @@ public class Hurricanes2
                     minWindSpeed = windSpeed[index];
                 }          
                 index++;
-            }
-        }
+                inFile.close();
+        }       
         
         System.out.println("                      Hurricanes 1980 - 2006");
         System.out.println();
@@ -124,15 +115,14 @@ public class Hurricanes2
         System.out.print("Average: ");
         System.out.printf("%23.1f%18.2f%20.2f\n", categoryAverage, pressureAverage, windAverage);
         System.out.print("Maximum: ");
-        System.out.printf("%23.0f%18.0f%20.2f\n", maxCategory, maxPressure, maxWindSpeed);
+        System.out.printf("%23f%18f%20.2f\n", maxCategory, maxPressure, maxWindSpeed);
         System.out.print("Minimum: ");
-        System.out.printf("%23.0f%18.0f%20.2f\n\n", minCategory, minPressure, minWindSpeed);
+        System.out.printf("%23f%18f%20.2f\n\n", minCategory, minPressure, minWindSpeed);
         System.out.println("Number of Category 1: " + category1);
         System.out.println("Number of Category 2: " + category2);
         System.out.println("Number of Category 3: " + category3);
         System.out.println("Number of Category 4: " + category4);
         System.out.println("Number of Category 5: " + category5);
         System.out.println("=====================================================================");
-        inFile.close();
     }
 }
