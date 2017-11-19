@@ -45,7 +45,6 @@ public class Hurricanes2
         index = 0;
         for (int i = 0; i < 59; i++)
         {                         
-                double windData = Double.parseDouble(windSpeed[index]);
                 windData = windSpeed[index]*1.15077945;
                 if (windData < 95.0)
                 {
